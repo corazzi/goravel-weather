@@ -27,9 +27,9 @@ func (receiver *GetWeatherInformation) Extend() command.Extend {
 
 //Handle Execute the console command.
 func (receiver *GetWeatherInformation) Handle(ctx console.Context) error {
-	//location := ctx.Argument(0)
+	location := ctx.Argument(0)
 
-	//fmt.Println(location)
+	fmt.Printf("Looking up the weather in %s...", location)
 
 	os.Exit(0)
 
