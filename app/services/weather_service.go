@@ -32,7 +32,7 @@ func (service WeatherService) GetCurrentWeather(location string) (*WeatherRespon
     defer response.Body.Close()
 
     if response.StatusCode != http.StatusOK {
-        return nil, fmt.Errorf("Error response %s from API", response.StatusCode)
+        return nil, fmt.Errorf("Error response %d from API, %s", response.StatusCode, endpoint)
     }
 
     var weatherResponse WeatherResponse

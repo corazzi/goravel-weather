@@ -1,0 +1,59 @@
+{{ define "weather.tmpl" }}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Goravel Weather</title>
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.bunny.net">
+        <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+
+        <!-- Styles -->
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body class="antialiased">
+        <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
+            <div class="max-w-7xl mx-auto p-6 lg:p-8">
+                <div class="flex flex-col justify-center">
+                    <img src="https://www.goravel.dev/logo.png" width="500" alt="Logo" class="medium-zoom-image">
+                    <h1 class="text-center text-white text-4xl">Weather</h1>
+                </div>
+
+                <div class="mt-16">
+                    <div class="text-white text-center text-4xl mb-8">
+                        {{ .weatherDetail }}
+                    </div>
+
+                    <form action="/weather" method="GET">
+                        <div>
+                            <label for="location" class="text-white">What's the weather like in</label>
+                            <input
+                                    type="text"
+                                    id="location"
+                                    name="location"
+                                    value="{{ .location }}"
+                                    class="px-2 ml-1"
+                            >
+                            <span class="text-white">?</span>
+                        </div>
+
+                        <div>
+                            <button type="submit" class="bg-white p-2 text-lg">Submit</button>
+                        </div>
+                    </form>
+
+                </div>
+
+                <div class="flex justify-center mt-16 px-0 sm:items-center sm:justify-between">
+                    <div class="ml-4 text-center text-sm text-gray-500 dark:text-gray-400 sm:text-right sm:ml-0">
+                        Goravel {{ .version }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+{{ end }}
