@@ -4,7 +4,6 @@ import (
 	"github.com/goravel/framework/contracts/console"
 	"github.com/goravel/framework/contracts/console/command"
 	"fmt"
-	"os"
 )
 
 type GetWeatherInformation struct {
@@ -30,8 +29,6 @@ func (receiver *GetWeatherInformation) Handle(ctx console.Context) error {
 	location := ctx.Argument(0)
 
 	fmt.Printf("Looking up the weather in %s...", location)
-
-	os.Exit(0)
 
 	return nil
 }
